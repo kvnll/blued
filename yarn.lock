@@ -6467,10 +6467,10 @@ vite-plugin-optimizer@^1.3.3:
   resolved "https://registry.yarnpkg.com/vite-plugin-optimizer/-/vite-plugin-optimizer-1.3.3.tgz#c47b5bef3b124c3ed764f8cf7cb07554de40a7d4"
   integrity sha512-CsVJBGULVhdK5lFgY2DBRWdYDQzpxHNAcqQb4GSSPih8YY/UmBOtLy4+rU8kForAhbkzqH5ahnomJbrbzC/MhQ==
 
-vite-plugin-pages-sitemap@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/vite-plugin-pages-sitemap/-/vite-plugin-pages-sitemap-1.2.2.tgz#e0aa37899bd724a23c17725823a1106906c4aeca"
-  integrity sha512-5ZY6ahezIsb0+O0WpRdJ9o6GbBALbPD/ClYX1fna2JgyVbAelvgrl89dnU0NGY76w3+tCDjj02HamjKwhcNU+g==
+vite-plugin-pages-sitemap@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/vite-plugin-pages-sitemap/-/vite-plugin-pages-sitemap-1.4.0.tgz#70cc6306fe115ced550ae9f6f940182323bde163"
+  integrity sha512-8GlmNSeObvDVUdmgutfWnGBZGsn3Zb8IXCjRODFB0tOhQqAQPZRwXrFha6ZLjvF4DgVJI3sW2FfiXa1wFxJvmg==
 
 vite-plugin-pages@0.23.0:
   version "0.23.0"
