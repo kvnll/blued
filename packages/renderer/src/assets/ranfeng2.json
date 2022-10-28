@@ -1,0 +1,249 @@
+{
+    "auto": [
+        {
+            "dbdata": "DB1030",
+            "address": "DBX1000.0",
+            "type": "bool",
+            "name": "状态",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBX1000.1",
+            "type": "bool",
+            "name": "状态",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBX1000.2",
+            "type": "bool",
+            "name": "状态",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBX1000.3",
+            "type": "bool",
+            "name": "状态",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBX1000.4",
+            "type": "bool",
+            "name": "就绪",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBX1000.5",
+            "type": "bool",
+            "name": "工作中",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBX1000.6",
+            "type": "bool",
+            "name": "暂停",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBX1000.7",
+            "type": "bool",
+            "name": "保护罩打开",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBX1001.0",
+            "type": "bool",
+            "name": "抽屉打开超时",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBX1001.1",
+            "type": "bool",
+            "name": "抽屉打开的异常",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBX1001.2",
+            "type": "bool",
+            "name": "卸载站点已满",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1001.3",
+            "type": "bool",
+            "name": "运行时防护罩打开",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1001.4",
+            "type": "bool",
+            "name": "加载点没有玻片架",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1001.5",
+            "type": "bool",
+            "name": "电源断开",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1001.6",
+            "type": "bool",
+            "name": "机械臂故障",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1001.7",
+            "type": "bool",
+            "name": "托盘数量不满9层",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1002.0",
+            "type": "bool",
+            "name": "封片完成",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1002.1",
+            "type": "bool",
+            "name": "启动程序失败，玻片架被取走",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1002.2",
+            "type": "bool",
+            "name": "站点冲突",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1002.3",
+            "type": "bool",
+            "name": "染色机软件没有返回主界面",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1002.4",
+            "type": "bool",
+            "name": "快捷键没有设置程序",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1002.5",
+            "type": "bool",
+            "name": "没有启动联机",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1002.6",
+            "type": "bool",
+            "name": "恒染试剂过期",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1002.7",
+            "type": "bool",
+            "name": "启动反馈",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1003.0",
+            "type": "bool",
+            "name": "暂停反馈",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1003.1",
+            "type": "bool",
+            "name": "收到恢复信号反馈",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1003.2",
+            "type": "bool",
+            "name": "故障复位反馈",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1003.3",
+            "type": "bool",
+            "name": "中间件内部数据异常错误",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1003.4",
+            "type": "bool",
+            "name": "数据出现错误",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1003.5",
+            "type": "bool",
+            "name": "与设备没有连接报警",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1003.6",
+            "type": "bool",
+            "name": "站点23号架子状态检测(卸载点)",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1003.7",
+            "type": "bool",
+            "name": "站点24号架子状态检测",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1004.0",
+            "type": "bool",
+            "name": "站点25号架子状态检测",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1004.1",
+            "type": "bool",
+            "name": "站点26号架子状态检测",
+            "jog": false
+           },
+           {
+            "dbdata": "DB1030",
+            "address": "DBX1004.2",
+            "type": "bool",
+            "name": "状态",
+            "jog": false
+           }
+    ]
+}

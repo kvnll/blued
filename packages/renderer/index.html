@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>玄刃科技</title>
+  </head>
+  <body style="background-color: #eaf0f7; font-family: Noto Sans SC">
+    <div id="app"></div>
+    <script>
+      var exports = { __esModule: true }
+    </script>
+    <script type="module" src="/src/main.ts"></script>
+    <script>
+      const { webFrame } = require("electron")
+
+      webFrame.setZoomFactor(0.7)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "appId": "xr-plc-reader-write",
+  "asar": false,
+  "extraResources": [
+    "packages/renderer/src/assets/db.json"
+  ],
+  "directories": {
+    "output": "release"
+  },
+  "files": [
+    "dist"
+  ],
+  "mac": {
+    "target": [
+      "dmg"
+    ]
+  },
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": [
+          "x64"
+        ]
+      }
+    ],
+    "artifactName": "${productName}_${version}.${ext}"
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": false,
+    "allowToChangeInstallationDirectory": true,
+    "deleteAppDataOnUninstall": false
+  }
+}

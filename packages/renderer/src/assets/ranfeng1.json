@@ -1,0 +1,270 @@
+{
+    "auto": [
+        {
+            "dbdata": "DB1030",
+            "address": "DBW866",
+            "type": "INT",
+            "name": "达科为控制",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW926",
+            "type": "INT",
+            "name": "水箱温度",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW928",
+            "type": "INT",
+            "name": "烤箱温度",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW930",
+            "type": "INT",
+            "name": "废气浓度",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW932",
+            "type": "INT",
+            "name": "活性炭期限",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW934",
+            "type": "INT",
+            "name": "步序号1",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW936",
+            "type": "INT",
+            "name": "程序名1",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW938",
+            "type": "INT",
+            "name": "架子号1",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW940",
+            "type": "INT",
+            "name": "站点号1",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW942",
+            "type": "INT",
+            "name": "站点剩余时间1",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW944",
+            "type": "INT",
+            "name": "程序剩余时间1",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW946",
+            "type": "INT",
+            "name": "程序总时间1",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW948",
+            "type": "INT",
+            "name": "程序总步序1",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW950",
+            "type": "INT",
+            "name": "步序号2",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW952",
+            "type": "INT",
+            "name": "程序名2",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW954",
+            "type": "INT",
+            "name": "架子号2",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW956",
+            "type": "INT",
+            "name": "站点号2",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW958",
+            "type": "INT",
+            "name": "站点剩余时间2",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW960",
+            "type": "INT",
+            "name": "程序剩余时间2",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW962",
+            "type": "INT",
+            "name": "程序总时间2",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW964",
+            "type": "INT",
+            "name": "程序总步序2",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW966",
+            "type": "INT",
+            "name": "步序号3",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW968",
+            "type": "INT",
+            "name": "程序名3",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW970",
+            "type": "INT",
+            "name": "架子号3",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW972",
+            "type": "INT",
+            "name": "站点号3",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW974",
+            "type": "INT",
+            "name": "站点剩余时间3",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW976",
+            "type": "INT",
+            "name": "程序剩余时间3",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW978",
+            "type": "INT",
+            "name": "程序总时间3",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW980",
+            "type": "INT",
+            "name": "程序总步序3",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW982",
+            "type": "INT",
+            "name": "步序号",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW984",
+            "type": "INT",
+            "name": "程序名4",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW986",
+            "type": "INT",
+            "name": "架子号4",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW988",
+            "type": "INT",
+            "name": "站点号4",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW990",
+            "type": "INT",
+            "name": "站点剩余时间4",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW992",
+            "type": "INT",
+            "name": "程序剩余时间4",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW994",
+            "type": "INT",
+            "name": "程序总时间4",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW996",
+            "type": "INT",
+            "name": "程序总步序4",
+            "jog": false
+        },
+        {
+            "dbdata": "DB1030",
+            "address": "DBW998",
+            "type": "INT",
+            "jog": false
+        }
+      
+    ]
+}

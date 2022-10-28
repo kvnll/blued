@@ -1,0 +1,802 @@
+{
+    "equipmentStatus": [
+        {
+            "name": "样本管三轴在初始位",
+            "address": "DBX284.2",
+            "type": "bool",
+            "value": "null"
+        },
+        {
+            "name": "开盖两轴在初始位",
+            "address": "DBX284.3",
+            "type": "bool",
+            "value": "null"
+        },
+        {
+            "name": "移液三轴轴在初始位",
+            "address": "DBX284.4",
+            "type": "bool",
+            "value": "null"
+        },
+        {
+            "name": "样本管转台在初始位",
+            "address": "DBX284.5",
+            "type": "bool",
+            "value": "null"
+        },
+        {
+            "name": "沉降仓转台在初始位",
+            "address": "DBX284.6",
+            "type": "bool",
+            "value": "null"
+        },
+        {
+            "name": "清洗转台在初始位",
+            "address": "DBX284.7",
+            "type": "bool",
+            "value": "null"
+        },
+        {
+            "name": "离心机1在初始位",
+            "address": "DBX285.0",
+            "type": "bool",
+            "value": "null"
+        },
+        {
+            "name": "离心机2在初始位",
+            "address": "DBX285.1",
+            "type": "bool",
+            "value": "null"
+        },
+        {
+            "name": "R01在原位",
+            "address": "DBX.2.6",
+            "type": "bool",
+            "value": "null"
+        },
+        {
+            "name": "R01在原位",
+            "address": "DBX285.1",
+            "type": "bool",
+            "value": "null"
+        },
+        {
+            "name": "离心机2在初始位",
+            "address": "DBX285.1",
+            "type": "bool",
+            "value": "null"
+        },
+        {
+            "name": "离心机2在初始位",
+            "address": "DBX285.1",
+            "type": "bool",
+            "value": "null"
+        }
+    ],
+    "buttonTrigger": [
+        {
+            "name": "初始化按钮标志位",
+            "address": "DBX70.0",
+            "type": "int",
+            "value": "null"
+        },
+        {
+            "name": "开始按钮标志位",
+            "address": "DBX70.1",
+            "type": "int",
+            "value": "null"
+        },
+        {
+            "name": "停止按钮标志位",
+            "address": "DBX70.2",
+            "type": "int",
+            "value": "null"
+        },
+        {
+            "name": "暂停按钮标志位",
+            "address": "DBX70.3",
+            "type": "int",
+            "value": "null"
+        },
+        {
+            "name": "继续运行按钮标志位",
+            "address": "DBX70.4",
+            "type": "int",
+            "value": "null"
+        },
+        {
+            "name": "故障复位（设备）标志位",
+            "address": "DBX70.5",
+            "type": "int",
+            "value": "null"
+        },
+        {
+            "name": "手动按钮标志位",
+            "address": "DBX70.6",
+            "type": "int",
+            "value": "null"
+        },
+        {
+            "name": "自动按钮标志位",
+            "address": "DBX70.7",
+            "type": "int",
+            "value": "null"
+        },
+        {
+            "name": "补料请求按钮标志位",
+            "address": "DBX71.0",
+            "type": "int",
+            "value": "null"
+        },
+        {
+            "name": "补料结束按钮标志位",
+            "address": "DBX71.1",
+            "type": "int",
+            "value": "null"
+        },
+        {
+            "name": "消毒标志位",
+            "address": "DBX71.2",
+            "type": "int",
+            "value": "null"
+        },
+        {
+            "name": "消毒结束标志位",
+            "address": "DBX71.3",
+            "type": "int",
+            "value": "null"
+        },
+        {
+            "name": "关机请求标志位",
+            "address": "DBX71.4",
+            "type": "int",
+            "value": "null"
+        },
+        {
+            "name": "指示灯测试标志位",
+            "address": "DBX71.5",
+            "type": "int",
+            "value": "null"
+        }
+    ],
+    "debugStatus": [
+        {
+            "name": "",
+            "address": "DBW68",
+            "children": [
+                {
+                    "name": "顺控1回原位",
+                    "address": "DBX68.0",
+                    "type": "bool",
+                    "value": "null"
+                },
+                {
+                    "name": "顺控2回原位",
+                    "address": "DBX68.1",
+                    "type": "bool",
+                    "value": "null"
+                },
+                {
+                    "name": "顺控3回原位",
+                    "address": "DBX68.2",
+                    "type": "bool",
+                    "value": "null"
+                },
+                {
+                    "name": "顺控4回原位",
+                    "address": "DBX68.3",
+                    "type": "bool",
+                    "value": "null"
+                },
+                {
+                    "name": "顺控5回原位",
+                    "address": "DBX68.4",
+                    "type": "bool",
+                    "value": "null"
+                },
+                {
+                    "name": "顺控6回原位",
+                    "address": "DBX68.5",
+                    "type": "bool",
+                    "value": "null"
+                }
+            ]
+        },
+        {
+            "name": "样本管转台",
+            "address": "DBW294",
+            "children": [
+                {
+                    "name": "运动中",
+                    "address": "DBW294.0",
+                    "type": "bool",
+                    "value": "null"
+                },
+                {
+                    "name": "回原点",
+                    "address": "DBW294.1",
+                    "type": "bool",
+                    "value": "null"
+                },
+                {
+                    "name": "任务完成",
+                    "address": "DBW294.2",
+                    "type": "bool",
+                    "value": "null"
+                },
+                {
+                    "name": "任务结束",
+                    "address": "DBW294.3",
+                    "type": "bool",
+                    "value": "null"
+                },
+                {
+                    "name": "当前速度",
+                    "address": "DBX296",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "当前位置",
+                    "address": "DBX298",
+                    "type": "real",
+                    "value": "null"
+                },
+                {
+                    "name": "报警",
+                    "address": "DBX302",
+                    "type": "int",
+                    "value": "null"
+                }
+            ]
+        },
+        {
+            "name": "移液X轴",
+            "address": "DBW312",
+            "children": [
+                {
+                    "name": "当前速度",
+                    "address": "DBW314",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "当前位置",
+                    "address": "DBW316",
+                    "type": "real",
+                    "value": "null"
+                },
+                {
+                    "name": "报警",
+                    "address": "DBW320",
+                    "type": "int",
+                    "value": "null"
+                }
+            ]
+        },
+        {
+            "name": "移液Y轴",
+            "address": "DBW330",
+            "children": [
+                {
+                    "name": "当前速度",
+                    "address": "DBW332",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "当前位置",
+                    "address": "DBW334",
+                    "type": "real",
+                    "value": "null"
+                },
+                {
+                    "name": "报警",
+                    "address": "DBW338",
+                    "type": "int",
+                    "value": "null"
+                }
+            ]
+        },
+        {
+            "name": "移液Z轴",
+            "address": "DBW348",
+            "children": [
+                {
+                    "name": "当前速度",
+                    "address": "DBW350",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "当前位置",
+                    "address": "DBW352",
+                    "type": "real",
+                    "value": "null"
+                },
+                {
+                    "name": "报警",
+                    "address": "DBW356",
+                    "type": "int",
+                    "value": "null"
+                }
+            ]
+        },
+        {
+            "name": "离心上料X轴",
+            "address": "DBW366",
+            "children": [
+                {
+                    "name": "当前速度",
+                    "address": "DBW368",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "当前位置",
+                    "address": "DBW370",
+                    "type": "real",
+                    "value": "null"
+                },
+                {
+                    "name": "报警",
+                    "address": "DBW374",
+                    "type": "int",
+                    "value": "null"
+                }
+            ]
+        },
+        {
+            "name": "离心上料Y轴",
+            "address": "DBW384",
+            "children": [
+                {
+                    "name": "当前速度",
+                    "address": "DBW386",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "当前位置",
+                    "address": "DBW388",
+                    "type": "real",
+                    "value": "null"
+                },
+                {
+                    "name": "报警",
+                    "address": "DBW392",
+                    "type": "int",
+                    "value": "null"
+                }
+            ]
+        },
+        {
+            "name": "离心上料Z轴",
+            "address": "DBW402",
+            "children": [
+                {
+                    "name": "当前速度",
+                    "address": "DBW404",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "当前位置",
+                    "address": "DBW406",
+                    "type": "real",
+                    "value": "null"
+                },
+                {
+                    "name": "报警",
+                    "address": "DBW410",
+                    "type": "int",
+                    "value": "null"
+                }
+            ]
+        },
+        {
+            "name": "离心上料Z轴",
+            "address": "DBW420",
+            "children": [
+                {
+                    "name": "当前速度",
+                    "address": "DBW422",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "当前位置",
+                    "address": "DBW424",
+                    "type": "real",
+                    "value": "null"
+                },
+                {
+                    "name": "报警",
+                    "address": "DBW428",
+                    "type": "int",
+                    "value": "null"
+                }
+            ]
+        },
+        {
+            "name": "样本管搬运Y轴",
+            "address": "DBW438",
+            "children": [
+                {
+                    "name": "当前速度",
+                    "address": "DBW440",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "当前位置",
+                    "address": "DBW442",
+                    "type": "real",
+                    "value": "null"
+                },
+                {
+                    "name": "报警",
+                    "address": "DBW446",
+                    "type": "int",
+                    "value": "null"
+                }
+            ]
+        },
+        {
+            "name": "样本管搬运Z轴",
+            "address": "DBW448",
+            "children": [
+                {
+                    "name": "当前速度",
+                    "address": "DBW450",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "当前位置",
+                    "address": "DBW452",
+                    "type": "real",
+                    "value": "null"
+                },
+                {
+                    "name": "报警",
+                    "address": "DBW446",
+                    "type": "int",
+                    "value": "null"
+                }
+            ]
+        }
+    ],
+    "equipment": [
+        {
+            "name": "倒废液钧舵夹爪1",
+            "children": [
+                {
+                    "name": "状态",
+                    "address": "DBB1170",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "故障信息",
+                    "address": "DBB1171",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "位置反馈：0-255",
+                    "address": "DBB1172",
+                    "type": "byte",
+                    "value": "null"
+                },
+                {
+                    "name": "速度反馈：0-255",
+                    "address": "DBB1173",
+                    "type": "byte",
+                    "value": "null"
+                },
+                {
+                    "name": "当前电流值：10mA*当前值",
+                    "address": "DBB1174",
+                    "type": "byte",
+                    "value": "null"
+                },
+                {
+                    "name": "母线电压：单位V",
+                    "address": "DBB1175",
+                    "type": "byte",
+                    "value": "null"
+                },
+                {
+                    "name": "环境温度：单位摄氏度",
+                    "address": "DBB1176",
+                    "type": "byte",
+                    "value": "null"
+                },
+                {
+                    "name": "命令执行完成",
+                    "address": "DBX1178.0",
+                    "type": "bool",
+                    "value": "null"
+                },
+                {
+                    "name": "有故障",
+                    "address": "DBW1180",
+                    "type": "int",
+                    "value": "null"
+                }
+            ]
+        },
+        {
+            "name": "倒废液钧舵夹爪2",
+            "children": [
+                {
+                    "name": "状态",
+                    "address": "DBB1184",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "故障信息",
+                    "address": "DBB1185",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "位置反馈：0-255",
+                    "address": "DBB1186",
+                    "type": "byte",
+                    "value": "null"
+                },
+                {
+                    "name": "速度反馈：0-255",
+                    "address": "DBB1187",
+                    "type": "byte",
+                    "value": "null"
+                },
+                {
+                    "name": "当前电流值：10mA*当前值",
+                    "address": "DBB1188",
+                    "type": "byte",
+                    "value": "null"
+                },
+                {
+                    "name": "母线电压：单位V",
+                    "address": "DBB1189",
+                    "type": "byte",
+                    "value": "null"
+                },
+                {
+                    "name": "环境温度：单位摄氏度",
+                    "address": "DBB1190",
+                    "type": "byte",
+                    "value": "null"
+                },
+                {
+                    "name": "命令执行完成",
+                    "address": "DBX1192.0",
+                    "type": "bool",
+                    "value": "null"
+                },
+                {
+                    "name": "故障",
+                    "address": "DBW1194",
+                    "type": "int",
+                    "value": "null"
+                }
+            ]
+        },
+        {
+            "name": "样本管开盖旋转电爪",
+            "children": [
+                {
+                    "name": "初始化状态：0未初始化；5初始化完成；其他初始化中",
+                    "address": "DBW1296",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "指令完成",
+                    "address": "DBX1298.0",
+                    "type": "bool",
+                    "value": "null"
+                },
+                {
+                    "name": "夹紧状态反馈：0到位1运动中2夹持3掉落",
+                    "address": "DBW1300",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "夹紧位置反馈：单位mm",
+                    "address": "DBD1302",
+                    "type": "real",
+                    "value": "null"
+                },
+                {
+                    "name": "夹紧速度反馈：单位mm/s",
+                    "address": "DBD1306",
+                    "type": "real",
+                    "value": "null"
+                },
+                {
+                    "name": "夹紧电流反馈：单位A",
+                    "address": "DBD1310",
+                    "type": "real",
+                    "value": "null"
+                },
+                {
+                    "name": "旋转状态反馈：0到位1运动中2堵转",
+                    "address": "DBW1314",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "旋转位置反馈：单位°",
+                    "address": "DBD1318",
+                    "type": "REAL",
+                    "value": "null"
+                },
+                {
+                    "name": "旋转速度反馈：单位°/s",
+                    "address": "DBD1322",
+                    "type": "REAL",
+                    "value": "null"
+                },
+                {
+                    "name": "旋转电流反馈：单位A",
+                    "address": "DBD1326",
+                    "type": "REAL",
+                    "value": "null"
+                },
+                {
+                    "name": "故障",
+                    "address": "DBW1330",
+                    "type": "REAL",
+                    "value": "null"
+                }
+            ]
+        },
+        {
+            "name": "离心机1状态",
+            "children": [
+                {
+                    "name": "定位状态",
+                    "address": "DBW1634",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "当前转速",
+                    "address": "DBW1636",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "设定转速",
+                    "address": "DBW1638",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "设定时间",
+                    "address": "DBW1640",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "剩余时间",
+                    "address": "DBW1642",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "门状态：0关1开2中间",
+                    "address": "DBW1644",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "主电机状态：0停止1运转中",
+                    "address": "DBW1646",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "指令完成",
+                    "address": "DBX1650.0",
+                    "type": "bool",
+                    "value": "null"
+                },
+                {
+                    "name": "故障",
+                    "address": "DBW1652",
+                    "type": "int",
+                    "value": "null"
+                }
+            ]
+        },
+        {
+            "name": "离心机2状态",
+            "children": [
+                {
+                    "name": "定位状态",
+                    "address": "DBW1662",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "当前转速",
+                    "address": "DBW1664",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "设定转速",
+                    "address": "DBW1666",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "设定时间",
+                    "address": "DBW1668",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "剩余时间",
+                    "address": "DBW1670",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "门状态：0关1开2中间",
+                    "address": "DBW1672",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "主电机状态：0停止1运转中",
+                    "address": "DBW1674",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "指令完成",
+                    "address": "DBX1678.0",
+                    "type": "bool",
+                    "value": "null"
+                },
+                {
+                    "name": "故障",
+                    "address": "DBW1680",
+                    "type": "int",
+                    "value": "null"
+                }
+            ]
+        },
+        {
+            "name": "东方电机",
+            "children": [
+                {
+                    "name": "当前位置",
+                    "address": "DBW1784",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "故障",
+                    "address": "DBW1786",
+                    "type": "int",
+                    "value": "null"
+                },
+                {
+                    "name": "指令完成",
+                    "address": "DBX1788.0",
+                    "type": "bool",
+                    "value": "null"
+                }
+            ]
+        }
+    ]
+}

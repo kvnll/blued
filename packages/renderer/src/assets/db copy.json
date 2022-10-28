@@ -1,0 +1,141 @@
+{
+    "样本管转台-SMC": {
+        "auto":[
+         {
+          "dbdata": "DB1040",
+          "address": "DBD0",
+          "type": "dint",
+          "name": "预警数量设置",
+          "jog": false
+         },
+         {
+          "dbdata": "DB1040",
+          "address": "DBD4",
+          "type": "dint",
+          "name": "报警数量设置",
+          "jog": false
+         },
+         {
+          "dbdata": "DB1040",
+          "address": "DBD8",
+          "type": "dint",
+          "name": "使用数量",
+          "jog": false
+         },
+         {
+          "dbdata": "DB1040",
+          "address": "DBD12",
+          "type": "dint",
+          "name": "预警数量设置",
+          "jog": false
+         },
+         {
+          "dbdata": "DB1040",
+          "address": "DBD16",
+          "type": "dint",
+          "name": "报警数量设置",
+          "jog": false
+         },
+         {
+          "dbdata": "DB1040",
+          "address": "DBD20",
+          "type": "dint",
+          "name": "使用数量",
+          "jog": false
+         },
+         {
+          "dbdata": "DB1040",
+          "address": "DBD24",
+          "type": "dint",
+          "name": "预警数量设置",
+          "jog": false
+         },
+         {
+          "dbdata": "DB1040",
+          "address": "DBD28",
+          "type": "dint",
+          "name": "报警数量设置",
+          "jog": false
+         },
+         {
+          "dbdata": "DB1040",
+          "address": "DBD32",
+          "type": "dint",
+          "name": "使用数量",
+          "jog": false
+         }
+        ],
+        "menu":[
+         {
+          "dbdata": "DB1030",
+          "address": "DBX286.0",
+          "type": "bool",
+          "name": "样本管转台正向点动",
+          "jog": false
+         },
+         {
+          "dbdata": "DB1031",
+          "address": "DBX286.1",
+          "type": "bool",
+          "name": "样本管转台负向点动",
+          "jog": false
+         },
+         {
+          "dbdata": "DB1032",
+          "address": "DBX286.2",
+          "type": "bool",
+          "name": "样本管转台寸动",
+          "jog": false
+         },
+         {
+          "dbdata": "DB1033",
+          "address": "DBX286.3",
+          "type": "bool",
+          "name": "样本管转台回零",
+          "jog": false
+         },
+         {
+          "dbdata": "DB1034",
+          "address": "DBX286.4",
+          "type": "bool",
+          "name": "样本管转台定位",
+          "jog": false
+         },
+         {
+          "dbdata": "DB1035",
+          "address": "DBW288",
+          "type": "int",
+          "name": "样本管转台速度设定",
+          "jog": false
+         },
+         {
+          "dbdata": "DB1036",
+          "address": "DBD290",
+          "type": "real",
+          "name": "样本管转台位置设定",
+          "jog": false
+         },
+         {
+          "dbdata": "DB1037",
+          "address": "DBW296",
+          "type": "int",
+          "name": "样本管转台速度反馈",
+          "jog": false
+         },
+         {
+          "dbdata": "DB1038",
+          "address": "DBD298",
+          "type": "real",
+          "name": "样本管转台位置反馈",
+          "jog": false
+         },
+         {
+          "dbdata": "DB1039",
+          "address": "DBW302",
+          "type": "int",
+          "name": "样本管转台SMC1报警反馈",
+          "jog": null
+         }
+        ]
+        }
+}

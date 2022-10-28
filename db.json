@@ -1,0 +1,103 @@
+{
+  "equipmentStatus": {
+    "auto": [
+      {
+        "name": "急停",
+        "address": "DBX66.0",
+        "type": "bool",
+        "value": "null"
+      },
+      {
+        "name": "设备暂停",
+        "address": "BX66.1",
+        "type": "bool",
+        "value": "null"
+      },
+      {
+        "name": "自动模式",
+        "address": "DBX66.2",
+        "type": "bool",
+        "value": "null"
+      },
+      {
+        "name": "手动模式",
+        "address": "DBX66.3",
+        "type": "bool",
+        "value": "null"
+      },
+      {
+        "name": "单步模式",
+        "address": "DBX66.4",
+        "type": "bool",
+        "value": "null"
+      },
+      {
+        "name": "允许补料",
+        "address": "DBX66.5",
+        "type": "bool",
+        "value": "null"
+      },
+      {
+        "name": "停止模式",
+        "address": "DBX66.6",
+        "type": "bool",
+        "value": "null"
+      },
+      {
+        "name": "就绪",
+        "address": "DBX66.7",
+        "type": "bool",
+        "value": "null"
+      },
+      {
+        "name": "有故障",
+        "address": "DBX67.0",
+        "type": "bool",
+        "value": "null"
+      },
+      {
+        "name": "有报警",
+        "address": "DBX67.1",
+        "type": "bool",
+        "value": "null"
+      },
+      {
+        "name": "有警告",
+        "address": "DBX67.2",
+        "type": "bool",
+        "value": "null"
+      },
+      {
+        "name": "回零完成",
+        "address": "DBX67.3",
+        "type": "bool",
+        "value": "null"
+      },
+      {
+        "name": "运行状态",
+        "address": "DBX67.4",
+        "type": "bool",
+        "value": "null"
+      }
+    ],
+    "menu": [
+      {
+        "name": "急停",
+        "address": "DBX66.0",
+        "type": "bool",
+        "jog": true,
+        "value": "null"
+      }
+    ]
+  },
+  "posts": [
+    {
+      "id": 123,
+      "title": "lowdb is 1"
+    },
+    {
+      "id": "dsfdsf",
+      "title": "lowdb is 1"
+    }
+  ]
+}
