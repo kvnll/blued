@@ -73,5 +73,5 @@ jobs:
           build_script_name: prebuild
           args: --config electron-builder.json
           github_token: ${{ secrets.ACCESS_TOKEN }}
-          # release: ${{ startsWith(github.ref, 'refs/tags/v') && github.event_name == 'push' && needs.get_metadata.outputs.branch == 'master'}}
+          release: ${{ startsWith(github.ref, 'refs/tags/v') }}
           max_attempts: 3
