@@ -528,8 +528,8 @@ export const useScannerStore = defineStore('scanner', () => {
 
             // @ts-ignore
             let result_data = hex2a(result.data.value);
-            if (result_data.length > 9) {
-                result_data = result_data.substring(0, 9);
+            if (result_data.length > 12) {
+                result_data = result_data.substring(0, 12);
             }
             // @ts-ignore
 
