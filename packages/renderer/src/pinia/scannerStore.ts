@@ -35,7 +35,9 @@ export const useScannerStore = defineStore('scanner', () => {
     const plc_read_prinnter_ready = ref(false);
     const plc_read_compare_ready = ref(false);
 
-
+    // 1,2 扫码 任意一个扫出来就算扫描成功
+    // 3,4 打码
+    // 3,4,5 比对, 3===4 || 3===5对比成功
     const get_scanner_data = async (position: number) => {
         let port;
         switch (position) {
@@ -114,6 +116,7 @@ export const useScannerStore = defineStore('scanner', () => {
 
 
 
+    // 发送打码数据 3, 4
     const send_printer_data = async (data: string) => {
 
         const result = await axios
@@ -525,8 +528,8 @@ export const useScannerStore = defineStore('scanner', () => {
 
             // @ts-ignore
             let result_data = hex2a(result.data.value);
-            if (result_data.length > 8) {
-                result_data = result_data.substring(0, 8);
+            if (result_data.length > 9) {
+                result_data = result_data.substring(0, 9);
             }
             // @ts-ignore
 
