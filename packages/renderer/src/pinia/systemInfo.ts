@@ -429,7 +429,7 @@ export const useSystemInfoStore = defineStore("systemInfo", () => {
         dbdata: "DB1001",
         address: "DBX0.7",
         type: "BOOL",
-        name: "样本光输入层中间位报警",
+        name: "样本管输入层中间位报警",
         jog: false
       },
       {
