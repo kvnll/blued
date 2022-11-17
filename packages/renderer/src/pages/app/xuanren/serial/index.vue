@@ -68,7 +68,7 @@ const userStore = useScannerStore();
                   <div class="col-md-4">
                     <div
                       class="btn btn-info"
-                      @click="userStore.get_scanner_data(1)"
+                      @click="userStore.get_scanner_data('1')"
                     >
                       获取
                     </div>
@@ -93,7 +93,7 @@ const userStore = useScannerStore();
                   <div class="col-md-4">
                     <div
                       class="btn btn-info"
-                      @click="userStore.get_scanner_data(2)"
+                      @click="userStore.get_scanner_data('2')"
                     >
                       获取
                     </div>
@@ -117,7 +117,7 @@ const userStore = useScannerStore();
                   <div class="col-md-4">
                     <div
                       class="btn btn-info"
-                      @click="userStore.get_scanner_data(3)"
+                      @click="userStore.get_scanner_data('3')"
                     >
                       获取
                     </div>
@@ -141,7 +141,7 @@ const userStore = useScannerStore();
                   <div class="col-md-4">
                     <div
                       class="btn btn-info"
-                      @click="userStore.get_scanner_data(4)"
+                      @click="userStore.get_scanner_data('4')"
                     >
                       获取
                     </div>
@@ -165,7 +165,7 @@ const userStore = useScannerStore();
                   <div class="col-md-4">
                     <div
                       class="btn btn-info"
-                      @click="userStore.get_scanner_data(5)"
+                      @click="userStore.get_scanner_data('5')"
                     >
                       获取
                     </div>

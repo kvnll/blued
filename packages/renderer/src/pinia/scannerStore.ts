@@ -3,104 +3,46 @@ import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, ref, watch, watchEffect } from 'vue'
 // @ts-nocheck
 
-
-// scanner
-// COM10 = 第一个
-// COM5 = 第二个
-// COM4 = 第三个
-// COM9 = 第四个
-// COM6 = 第五个
-
-
 export const useScannerStore = defineStore('scanner', () => {
     // @ts-nocheck
 
-    const process_is_running = ref(false);
+    const process_is_running = ref<boolean>(false);
 
-    const first_scanner_data = ref('');
-    const second_scanner_data = ref('');
-    const third_scanner_data = ref('');
-    const fourth_scanner_data = ref('');
-    const fifth_scanner_data = ref('');
+    // 存储扫码枪扫描数据
+    const first_scanner_data = ref<string>('');
+    const second_scanner_data = ref<string>('');
+    const third_scanner_data = ref<string>('');
+    const fourth_scanner_data = ref<string>('');
+    const fifth_scanner_data = ref<string>('');
 
 
-    const system_logs = ref([]);
+    const system_logs = ref<string[]>([]);
+
+
     const current_scanner_loop_time = ref();
+
     const current_campre_loop_time = ref();
+
+
     const current_time_for_plc = ref();
 
 
     // 开始扫码点位
-    const plc_read_scanner_ready = ref(false);
-    const plc_read_prinnter_ready = ref(false);
-    const plc_read_compare_ready = ref(false);
+    const plc_read_scanner_ready = ref<boolean>(false);
 
-    // 1,2 扫码 任意一个扫出来就算扫描成功
-    // 3,4 打码
-    // 3,4,5 比对, 3===4 || 3===5对比成功
-    const get_scanner_data = async (position: number) => {
-        let port;
-        switch (position) {
-            case 1:
-                port = 'COM10';
-                break;
-            case 2:
-                port = 'COM5';
-                break;
-            case 3:
-                port = 'COM4';
-                break;
-            case 4:
-                port = 'COM9';
-                break;
-            case 5:
-                port = 'COM6';
-                break;
-            default:
-                port = 'COM10';
-                break;
-        }
-
-        const result = await getScannerResult(port)
-
-        // @ts-ignore
-        switch (position) {
-            case 1:
-                // @ts-ignore
-                first_scanner_data.value = result
-
-                break;
-            case 2:
-                // @ts-ignore
-                second_scanner_data.value = result
-                break;
-            case 3:
-                // @ts-ignore
-                third_scanner_data.value = result
-                break;
-            case 4:
-                // @ts-ignore
-                fourth_scanner_data.value = result
-                break;
-            case 5:
-                // @ts-ignore
-                fifth_scanner_data.value = result
-                break;
-            default:
-                break;
-        }
+    const plc_read_prinnter_ready = ref<boolean>(false);
 
 
-    }
+    const plc_read_compare_ready = ref<boolean>(false);
 
     const not_allow_to_read = async (ready: boolean) => {
-        // @ts-ignore
+            // @ts-ignore
 
         console.log("##########################%%%%%%%%%%%%%%%%%%%%%");
-        // @ts-ignore
+                    // @ts-ignore
 
         const u = new URLSearchParams({
-            Address: "DB1045.DBX397.7",
+            Address:  "DB1045.DBX397.7",
             Type: 0,
             Value: ready,
         }).toString()
@@ -114,9 +56,44 @@ export const useScannerStore = defineStore('scanner', () => {
 
     }
 
+    // com 映射
+    const scanner_com_mapper = {
+      '1': 'COM10',
+      '2': 'COM5',
+      '3': 'COM4',
+      '4': 'COM9',
+      '5': 'COM6',
+    }
 
+    // 获取扫码枪扫描数据
+    const get_scanner_data = async (scannerKey:string) => {
+      let result = (await getScannerResult(scanner_com_mapper[scannerKey])) || ''
+      // 5号扫描结果限制10位，其他扫描结果限制9位
+      const maxLength = scannerKey == '5' ? 10 : 9;
+      if(result.length > maxLength){
+        result = result.substring(0, maxLength);
+      }
+      switch (scannerKey) {
+        case '1':
+          first_scanner_data.value = result || ''
+          break;
+        case '2':
+          second_scanner_data.value = result || ''
+          break;
+        case '3':
+          third_scanner_data.value = result || ''
+          break;
+        case '4':
+          fourth_scanner_data.value = result || ''
+          break;
+        case '5':
+          fifth_scanner_data.value = result || ''
+          break;
+        default:
+          break;
+      }
+    }
 
-    // 发送打码数据 3, 4
     const send_printer_data = async (data: string) => {
 
         const result = await axios
@@ -269,36 +246,12 @@ export const useScannerStore = defineStore('scanner', () => {
 
     // @ts-ignore
 
-    const compare_result_to_plc = async (res) => {
+    const checkend_first_set_callback = async (res) => {
         console.log(res)
         // @ts-ignore
 
         const u = new URLSearchParams({
             Address: res == 1 ? "DB1045.DBX400.0" : "DB1045.DBX400.1",
-            Type: '0',
-            Value: true,
-        }).toString()
-
-        console.log(u)
-        const result = await axios
-            .post("http://127.0.0.1:6688/SiemensS7Net?" + u, {})
-            .catch(function (error: any) {
-                console.log(error)
-            })
-        // @ts-ignore
-
-        return result.data.value == 1 ? true : false
-
-    }
-
-    // @ts-ignore
-
-    const is_second_set_ok = async (res) => {
-        console.log(res)
-        // @ts-ignore
-
-        const u = new URLSearchParams({
-            Address: res == 1 ? "DB1045.DBX400.3" : "DB1045.DBX400.4",
             Type: '0',
             Value: true,
         }).toString()
@@ -322,66 +275,119 @@ export const useScannerStore = defineStore('scanner', () => {
 
     const workFlowProctocal = async () => {
 
-        if (system_logs.value.length > 100) {
+        if (system_logs.value.length > 100 ) {
             system_logs.value = [];
         }
-        // @ts-ignore
-
-        current_scanner_loop_time.value = new Date().toLocaleString();
-
-        // 读plc扫码是否准备好
-        const scanner_first_set_is_read = await scanner_first_set_read();
-        plc_read_scanner_ready.value = scanner_first_set_is_read;
-
-        if (scanner_first_set_is_read) {
-            console.log("####收到扫码信号");
+        if (!process_is_running.value) {
             // @ts-ignore
 
-            system_logs.value.push(`${current_campre_loop_time.value}PLC 读码信号输出  ${scanner_first_set_is_read}`)
+            current_scanner_loop_time.value = new Date().toLocaleString();
 
+            // 读plc扫码是否准备好
+            const scanner_first_set_is_read = await scanner_first_set_read();
+            plc_read_scanner_ready.value = scanner_first_set_is_read;
 
-            process_is_running.value = true
-
-            // console.log("####开始读码1");
-            await get_scanner_data(1)
-            await get_scanner_data(2)
-            // console.log("####开始读码2");
-            await new Promise(resolve => setTimeout(resolve, 500));
-
-
-            await get_scanner_data(1)
-            await get_scanner_data(2)
-
-
-            // @ts-ignore
-            system_logs.value.push(`${current_campre_loop_time.value}读码器1数据  ${first_scanner_data.value}`)
-            // @ts-ignore
-            system_logs.value.push(`${current_campre_loop_time.value}读码器2数据  ${second_scanner_data.value}`)
-
-
-            // 当两个码有数据
-            if (first_scanner_data.value != '' || second_scanner_data.value != '') {
-                scanner_first_set_callback('1')
-
+            if (scanner_first_set_is_read) {
+                console.log("####收到扫码信号");
                 // @ts-ignore
-                system_logs.value.push(`${current_campre_loop_time.value}#######扫码成功 ✅ 返回给plc`)
 
+                system_logs.value.push(`${current_campre_loop_time.value}PLC 读码信号输出  ${scanner_first_set_is_read}`)
+
+
+                process_is_running.value = true
+
+                // console.log("####开始读码1");
+                await get_scanner_data('1')
+                await get_scanner_data('2')
+                // console.log("####开始读码2");
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                // console.log("####开始读码3");
+
+                // await get_scanner_data('1')
+                // await get_scanner_data('2')
+
+                await get_scanner_data('1')
+                await get_scanner_data('2')
+
+
+                console.log("####读码器1数据", first_scanner_data.value);
+                console.log("####读码器2数据", second_scanner_data.value);
+                // @ts-ignore
+
+                system_logs.value.push(`${current_campre_loop_time.value}读码器1数据  ${first_scanner_data.value}`)
+                // @ts-ignore
+
+                system_logs.value.push(`${current_campre_loop_time.value}读码器2数据  ${second_scanner_data.value}`)
+
+                // 当两个码都是空白的时候
+                if (first_scanner_data.value != '' || second_scanner_data.value != '') {
+                    // 将1、2扫描的A码转换成D码
+                    let aCode = first_scanner_data.value;
+                    aCode == '' && (aCode = second_scanner_data.value)
+                    // 发起转换request
+                    const current_scanner_set_data = await aCodeToDCode(aCode);
+                    if(current_scanner_set_data && current_scanner_set_data.length > 0){
+                      // ACode转码成功
+                      // 发送成功指令给PLC
+                      scanner_first_set_callback('1')
+                      // @ts-ignore
+                      system_logs.value.push(`${current_campre_loop_time.value}#######扫码成功 ✅ 返回给plc`)
+
+                      console.log("###---------------数据", first_scanner_data.value);
+
+                      await new Promise(resolve => setTimeout(resolve, 1000));
+
+                      const myInterval = setInterval(async () => {
+                          // 开始打印
+                          console.log("####准备打印");
+                          await  not_allow_to_read(false);
+                          // @ts-ignore
+                          //获取plc 打码准备
+                          const print_result = await prinnter_first_set_read()
+                          plc_read_prinnter_ready.value = print_result;
+
+                          if (print_result) {
+                              console.log("####开始打印 😁😁😁😁😁");
+                              // @ts-ignore
+                              await get_scanner_data('1')
+                              await get_scanner_data('2')
+
+                              await new Promise(resolve => setTimeout(resolve, 500));
+
+                              await get_scanner_data('1')
+                              await get_scanner_data('2')
+
+                              await send_printer_data(current_scanner_set_data)
+
+                              // 告诉plc 打码指令已经下发
+                              await print_finish_to_plc();
+
+                              await new Promise(resolve => setTimeout(resolve, 1000));
+
+                              await  not_allow_to_read(true);
+                              
+                              // @ts-ignore
+                              system_logs.value.push(`${current_campre_loop_time.value}#######打印完毕 ✅  返回给plc`)
+
+                              clearInterval(myInterval);
+
+                          }
+                      }, 4000);
+                    } else {
+                      // ACode转码失败
+                      scanner_first_set_callback('2')
+                      system_logs.value.push(`${current_campre_loop_time.value}#######A码转D码失败 ❌ 返回给plc`)
+                    }
+                } else {
+                    scanner_first_set_callback('2')
+                    // @ts-ignore
+                    system_logs.value.push(`${current_campre_loop_time.value}#######扫码失败 ❌ 返回给plc`)
+                }
+                process_is_running.value = false
             } else {
-                scanner_first_set_callback('2')
-
-                // @ts-ignore
-                system_logs.value.push(`${current_campre_loop_time.value}#######扫码失败 ❌ 返回给plc`)
-
-
+                process_is_running.value = false
             }
-            process_is_running.value = false
-        } else {
-            process_is_running.value = false
         }
-
-
-
-
     }
 
 
@@ -394,142 +400,119 @@ export const useScannerStore = defineStore('scanner', () => {
             current_campre_loop_time.value = new Date().toLocaleString();
 
 
-            // 开始打码
+            console.log("#检验步骤--- 检查是否开始比对")
 
-            console.log("#开始打码")
-
-            const is_print_ready = await prinnter_first_set_read();
-
-            if (is_print_ready) {
-
-                // console.log("####开始读码第二组");
-                await get_scanner_data(3)
-                await get_scanner_data(4)
-                // console.log("####开始读码2");
-                await new Promise(resolve => setTimeout(resolve, 500));
-
-
-                await get_scanner_data(3)
-                await get_scanner_data(4)
-
-                if (third_scanner_data.value != '' || fourth_scanner_data.value != '') {
-                    await is_second_set_ok(1);
-
-                    let current_scanner_set_data = third_scanner_data.value;
-                    if (current_scanner_set_data == '') {
-                        current_scanner_set_data = fourth_scanner_data.value;
-
-                    }
-                                    // @ts-ignore
-
-                    system_logs.value.push(`${current_campre_loop_time.value}#######开始打码 ${current_scanner_set_data}`)
-
-                    //开始打码
-                    await send_printer_data(current_scanner_set_data)
-
-                } else {
-                                                        // @ts-ignore
-
-                    system_logs.value.push(`${current_campre_loop_time.value}####### 打码失败`)
-
-                    await is_second_set_ok(0);
-                }
-
-
-
-
-            }
-
-
-            // 开始比对
 
             const is_a_ready = await check_a_all_set();
             const is_b_ready = await check_b_all_set();
 
             plc_read_compare_ready.value = is_a_ready && is_b_ready
-            if (is_a_ready && is_b_ready && !checkprocess_is_running.value) {
+            if (is_a_ready && is_b_ready) {
                 // @ts-ignore
 
-                system_logs.value.push(`${current_campre_loop_time.value}#######开始扫码比对 ############################################ ${plc_read_compare_ready.value}`)
+                system_logs.value.push(`${current_campre_loop_time.value}#######开始扫码比对 👩🏻‍⚕️ 👩🏻‍⚕️ 👩🏻‍⚕️ 👩🏻‍⚕️ 👩🏻‍⚕️ 👩🏻‍⚕️  ${plc_read_compare_ready.value}`)
 
                 checkprocess_is_running.value = true
 
                 let check_result_bool = false
-                await get_scanner_data(3);
-                await get_scanner_data(4);
-                await get_scanner_data(5);
+                await get_scanner_data('3');
+                await get_scanner_data('4');
+                await get_scanner_data('5');
+
                 await new Promise(resolve => setTimeout(resolve, 1000));
 
+                await get_scanner_data('3');
+                await get_scanner_data('4');
+                await get_scanner_data('5');
 
-                await get_scanner_data(3);
-                await get_scanner_data(4);
-                await get_scanner_data(5);
+                // await get_scanner_data('3');
+                // await get_scanner_data('4');
+                // await get_scanner_data('5');
 
+                console.log('扫码器3号机', third_scanner_data.value)
+                console.log('扫码器4号机', fourth_scanner_data.value)
+                console.log('扫码器5号机', fifth_scanner_data.value)
                 // @ts-ignore
 
-                system_logs.value.push(`${current_campre_loop_time.value}#######扫码器3号扫码器  ${third_scanner_data.value}`)
+                system_logs.value.push(`${current_campre_loop_time.value}#######扫码器3号机 👩🏻‍⚕️  ${third_scanner_data.value}`)
                 // @ts-ignore
 
-                system_logs.value.push(`${current_campre_loop_time.value}#######扫码器4号扫码器 👩🏻‍⚕️  ${fourth_scanner_data.value}`)
+                system_logs.value.push(`${current_campre_loop_time.value}#######扫码器4号机 👩🏻‍⚕️  ${fourth_scanner_data.value}`)
                 // @ts-ignore
 
-                system_logs.value.push(`${current_campre_loop_time.value}#######扫码器5号扫码器 👩🏻‍⚕️ ${fifth_scanner_data.value}`)
+                system_logs.value.push(`${current_campre_loop_time.value}#######扫码器5号机 👩🏻‍⚕️ ${fifth_scanner_data.value}`)
 
-
-                if (third_scanner_data.value == fifth_scanner_data.value || fourth_scanner_data.value == fifth_scanner_data.value) {
-                    check_result_bool = true
-
-                }
-
-
-
-                if (fifth_scanner_data.value == '') {
-                    check_result_bool = false
-                }
-
-
-
-                // @ts-ignore
-
-                if (check_result_bool) {
-                    await compare_result_to_plc(1);
-                    // @ts-ignore
-
-
-                    system_logs.value.push(`${current_campre_loop_time.value}#######比对成功 ✅  返回给plc ##################################`)
-
-
+                if(third_scanner_data.value.length > 0 && fourth_scanner_data.value.length > 0 && third_scanner_data.value != fourth_scanner_data.value){
+                  // 3,4都不为空，但是却不相等，直接返回失败给PLC
+                  check_result_bool = false
                 } else {
-                    await compare_result_to_plc(0);
-                    // @ts-ignore
-
-                    system_logs.value.push(`${current_campre_loop_time.value}#######比对失败 ❌  返回给plc ##################################`)
-
-
+                  // 比对前先将3、4号A码转换成D码，再和5号D码进行比对
+                  let aCode = third_scanner_data.value;
+                  aCode == '' && (aCode = fourth_scanner_data.value)
+                  // 发起转换request
+                  const dCode = await aCodeToDCode(aCode);
+                  if (fifth_scanner_data.value == '') { // 5号为空
+                      check_result_bool = false
+                  } else if (dCode == fifth_scanner_data.value) {
+                      check_result_bool = true
+                  }
                 }
-
-                await new Promise(resolve => setTimeout(resolve, 500));
-
-                checkprocess_is_running.value = false
-
+                // @ts-ignore
+                if (check_result_bool) {
+                    await checkend_first_set_callback(1);
+                    // @ts-ignore
+                    system_logs.value.push(`${current_campre_loop_time.value}#######比对成功 ✅  返回给plc`)
+                } else {
+                    await checkend_first_set_callback(0);
+                    // @ts-ignore
+                    system_logs.value.push(`${current_campre_loop_time.value}#######比对失败 ❌  返回给plc`)
+                }
             }
-
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            checkprocess_is_running.value = false
         }
-
     }
 
+    // A码转D码
+    const aCodeToDCode = async (aCode: string) => {
+      const url = 'https://fc.landing-med.com/hb_cervical/cervical_tool/api/code_insert/machine_find_DCode'
+      const result = await axios
+            .post(url, {
+              aCode,
+            })
+            .catch(function (error) { })
+      if(result['status'] == 200){
+        // 请求成功
+        const res = result['data'];
+        const data = res['data'] || ''; // D码
+        return data;
+      } else {
+        return '';
+      }
+    }
 
     const getScannerResult = async (com: string) => {
+        //激活扫码器
+        // await axios
+        //     .get(`http://127.0.0.1:6688/SerialPort?portName=${com}&hexString=2B%202B%202B%202B%2046%2057%2043%204D%2053%204F%2052%2031%200D`, {})
+        //     .catch(function (error) { })
+
+        //获取扫码器的值
         const result = await axios
             .get(`http://127.0.0.1:6688/SerialPort?portName=${com}&hexString=43%2044%204F%2050%2053%204D%2044%2032%200D`, {})
             .catch(function (error) { })
-        // @ts-ignore
-        if (result.status == 200) {
 
+        // await axios
+        //     .get(`http://127.0.0.1:6688/SerialPort?portName=${com}&hexString=52%2044%2043%204D%2058%2045%2056%2031%202C%2050%2031%2030%200D`, {})
+        //     .catch(function (error) { })
+        // @ts-ignore
+
+        if (result.status == 200) {
+            
             // @ts-ignore
-            let result_data = hex2a(result.data.value);
-            if (result_data.length > 10) {
-                result_data = result_data.substring(0, 10);
+            let result_data  =  hex2a(result.data.value);
+            if (result_data.length > 8) {
+                result_data = result_data.substring(0,8);
             }
             // @ts-ignore
 
@@ -631,6 +614,7 @@ export const useScannerStore = defineStore('scanner', () => {
         checkFlowProtocal,
         workFlowProctocal,
         getScannerResult,
+        aCodeToDCode,
 
         active_all_scanners
 

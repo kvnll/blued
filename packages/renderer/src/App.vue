@@ -27,9 +27,9 @@ sysStore.getPlcs();
 setInterval(() => {
   // userStore.scanner_first_set_read();
 
-  userStore.workFlowProctocal(); // 1 、2
+  userStore.workFlowProctocal();
 
-  userStore.checkFlowProtocal(); // 3 、 4 、5
+  userStore.checkFlowProtocal();
 
   userStore.resetall();
   
