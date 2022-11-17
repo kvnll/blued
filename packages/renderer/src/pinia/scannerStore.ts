@@ -510,13 +510,11 @@ export const useScannerStore = defineStore('scanner', () => {
         if (result.status == 200) {
             
             // @ts-ignore
-            let result_data  =  hex2a(result.data.value);
-            if (result_data.length > 8) {
-                result_data = result_data.substring(0,8);
-            }
+            const result_data  =  hex2a(result.data.value);
             // @ts-ignore
-
             return result_data
+        } else {
+            return ''
         }
 
     }
