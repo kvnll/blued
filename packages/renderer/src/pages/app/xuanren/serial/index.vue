@@ -196,6 +196,22 @@ const userStore = useScannerStore();
                     </div>
                   </div>
                 </div>
+                <div class="mb-3 row">
+                  <label
+                    for="compare-text-input"
+                    class="col-md-3 col-form-label"
+                    >比对结果:</label
+                  >
+                  <div class="col-md-4">
+                    <input
+                      class="form-control"
+                      type="text"
+                      disabled
+                      v-model="userStore.compare_result"
+                      id="compare-text-input"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>

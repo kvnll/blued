@@ -15,6 +15,9 @@ export const useScannerStore = defineStore('scanner', () => {
     const fourth_scanner_data = ref<string>('');
     const fifth_scanner_data = ref<string>('');
 
+    // 比对结果
+    const compare_result = ref<string>(''); 
+
 
     const system_logs = ref<string[]>([]);
 
@@ -276,7 +279,9 @@ export const useScannerStore = defineStore('scanner', () => {
     const workFlowProctocal = async () => {
 
         if (system_logs.value.length > 100 ) {
-            system_logs.value = [];
+            // system_logs.value = [];
+            // 系统日志长度超过阀值，保留最近50条
+            system_logs.value = system_logs.value.slice(system_logs.value.length - 50, system_logs.value.length);
         }
         if (!process_is_running.value) {
             // @ts-ignore
@@ -461,10 +466,12 @@ export const useScannerStore = defineStore('scanner', () => {
                 }
                 // @ts-ignore
                 if (check_result_bool) {
+                    compare_result.value = '成功';
                     await checkend_first_set_callback(1);
                     // @ts-ignore
                     system_logs.value.push(`${current_campre_loop_time.value}#######比对成功 ✅  返回给plc`)
                 } else {
+                    compare_result.value = '失败';
                     await checkend_first_set_callback(0);
                     // @ts-ignore
                     system_logs.value.push(`${current_campre_loop_time.value}#######比对失败 ❌  返回给plc`)
@@ -597,6 +604,8 @@ export const useScannerStore = defineStore('scanner', () => {
         third_scanner_data,
         fourth_scanner_data,
         fifth_scanner_data,
+
+        compare_result,
 
         get_scanner_data,
         send_printer_data,
