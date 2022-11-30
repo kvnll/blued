@@ -1,6 +1,6 @@
 {
   "name": "xuan-ren-desktop",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "main": "dist/main/index.cjs",
   "author": "weicheng.zhu@icloud.com",
   "license": "MIT",

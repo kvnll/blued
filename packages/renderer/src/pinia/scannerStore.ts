@@ -314,10 +314,10 @@ export const useScannerStore = defineStore('scanner', () => {
                 console.log("####读码器2数据", second_scanner_data.value);
                 // @ts-ignore
 
-                system_logs.value.push(`${current_campre_loop_time.value}读码器1数据  ${first_scanner_data.value}`)
+                system_logs.value.push(`${current_campre_loop_time.value}#######扫码器1号机 👩🏻‍⚕️  ${first_scanner_data.value}`)
                 // @ts-ignore
 
-                system_logs.value.push(`${current_campre_loop_time.value}读码器2数据  ${second_scanner_data.value}`)
+                system_logs.value.push(`${current_campre_loop_time.value}#######扫码器2号机 👩🏻‍⚕️  ${second_scanner_data.value}`)
 
                 // 当两个码都是空白的时候
                 if (first_scanner_data.value != '' || second_scanner_data.value != '') {
@@ -328,6 +328,7 @@ export const useScannerStore = defineStore('scanner', () => {
                     const current_scanner_set_data = await aCodeToDCode(aCode);
                     if(current_scanner_set_data && current_scanner_set_data.length > 0){
                       // ACode转码成功
+                      system_logs.value.push(`打印阶段A码:${aCode},D码:${current_scanner_set_data}`)
                       // 发送成功指令给PLC
                       scanner_first_set_callback('1')
                       // @ts-ignore
@@ -451,6 +452,7 @@ export const useScannerStore = defineStore('scanner', () => {
                   aCode == '' && (aCode = fourth_scanner_data.value)
                   // 发起转换request
                   const dCode = await aCodeToDCode(aCode);
+                  system_logs.value.push(`比对阶段A码:${aCode},D码:${dCode}`)
                   if (fifth_scanner_data.value == '') { // 5号为空
                       check_result_bool = false
                   } else if (dCode == fifth_scanner_data.value) {
