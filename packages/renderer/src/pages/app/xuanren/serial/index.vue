@@ -171,6 +171,54 @@ const userStore = useScannerStore();
                     </div>
                   </div>
                 </div>
+                <div class="mb-3 row">
+                  <label
+                    for="example-text-input"
+                    class="col-md-3 col-form-label"
+                    >读码器6数据:</label
+                  >
+                  <div class="col-md-4">
+                    <input
+                      class="form-control"
+                      type="text"
+                      disabled
+                      v-model="userStore.sixth_scanner_data"
+                      id="example-text-input"
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <div
+                      class="btn btn-info"
+                      @click="userStore.get_scanner_data('6')"
+                    >
+                      获取
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3 row">
+                  <label
+                    for="example-text-input"
+                    class="col-md-3 col-form-label"
+                    >读码器7数据:</label
+                  >
+                  <div class="col-md-4">
+                    <input
+                      class="form-control"
+                      type="text"
+                      disabled
+                      v-model="userStore.seventh_scanner_data"
+                      id="example-text-input"
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <div
+                      class="btn btn-info"
+                      @click="userStore.get_scanner_data('7')"
+                    >
+                      获取
+                    </div>
+                  </div>
+                </div>
 
                 <div class="mb-3 row">
                   <label
