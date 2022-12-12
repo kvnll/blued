@@ -8,12 +8,16 @@ export const useScannerStore = defineStore('scanner', () => {
 
     const process_is_running = ref<boolean>(false);
 
-    // 存储扫码枪扫描数据
+    // 存储扫码枪扫描数据 14 - 123， 15 - 456
+    // 1,2,6扫码枪为第一组
+    // 3,4,7扫码枪为第二组
     const first_scanner_data = ref<string>('');
     const second_scanner_data = ref<string>('');
     const third_scanner_data = ref<string>('');
     const fourth_scanner_data = ref<string>('');
     const fifth_scanner_data = ref<string>('');
+    const sixth_scanner_data = ref<string>('');
+    const seventh_scanner_data = ref<string>('');
 
     // 比对结果
     const compare_result = ref<string>(''); 
@@ -66,6 +70,8 @@ export const useScannerStore = defineStore('scanner', () => {
       '3': 'COM4',
       '4': 'COM9',
       '5': 'COM6',
+      '6': 'COM14',
+      '7': 'COM15',
     }
 
     // 获取扫码枪扫描数据
@@ -92,6 +98,12 @@ export const useScannerStore = defineStore('scanner', () => {
         case '5':
           fifth_scanner_data.value = result || ''
           break;
+        case '6':
+            sixth_scanner_data.value = result || ''
+            break;
+        case '7':
+            seventh_scanner_data.value = result || ''
+            break;
         default:
           break;
       }
@@ -304,6 +316,7 @@ export const useScannerStore = defineStore('scanner', () => {
                 // console.log("####开始读码1");
                 await get_scanner_data('1')
                 await get_scanner_data('2')
+                await get_scanner_data('6')
                 // console.log("####开始读码2");
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 // console.log("####开始读码3");
@@ -313,10 +326,12 @@ export const useScannerStore = defineStore('scanner', () => {
 
                 await get_scanner_data('1')
                 await get_scanner_data('2')
+                await get_scanner_data('6')
 
 
                 console.log("####读码器1数据", first_scanner_data.value);
                 console.log("####读码器2数据", second_scanner_data.value);
+                console.log("####读码器6数据", sixth_scanner_data.value);
                 // @ts-ignore
 
                 system_logs.value.push(`${current_campre_loop_time.value}#######扫码器1号机 👩🏻‍⚕️  ${first_scanner_data.value}`)
@@ -324,11 +339,14 @@ export const useScannerStore = defineStore('scanner', () => {
 
                 system_logs.value.push(`${current_campre_loop_time.value}#######扫码器2号机 👩🏻‍⚕️  ${second_scanner_data.value}`)
 
+                system_logs.value.push(`${current_campre_loop_time.value}#######扫码器6号机 👩🏻‍⚕️  ${sixth_scanner_data.value}`)
+
                 // 当两个码都是空白的时候
-                if (first_scanner_data.value != '' || second_scanner_data.value != '') {
-                    // 将1、2扫描的A码转换成D码
+                if (first_scanner_data.value != '' || second_scanner_data.value != '' || sixth_scanner_data.value != '') {
+                    // 将1、2、6扫描的A码转换成D码
                     let aCode = first_scanner_data.value;
                     aCode == '' && (aCode = second_scanner_data.value)
+                    aCode == '' && (aCode = sixth_scanner_data.value)
                     // 发起转换request
                     const current_scanner_set_data = await aCodeToDCode(aCode);
                     if(current_scanner_set_data && current_scanner_set_data.length > 0){
@@ -357,11 +375,13 @@ export const useScannerStore = defineStore('scanner', () => {
                               // @ts-ignore
                               await get_scanner_data('1')
                               await get_scanner_data('2')
+                              await get_scanner_data('6')
 
                               await new Promise(resolve => setTimeout(resolve, 500));
 
                               await get_scanner_data('1')
                               await get_scanner_data('2')
+                              await get_scanner_data('6')
 
                               await send_printer_data(current_scanner_set_data)
 
@@ -423,12 +443,16 @@ export const useScannerStore = defineStore('scanner', () => {
                 let check_result_bool = false
                 await get_scanner_data('3');
                 await get_scanner_data('4');
+                await get_scanner_data('7');
+
                 await get_scanner_data('5');
 
                 await new Promise(resolve => setTimeout(resolve, 1000));
 
                 await get_scanner_data('3');
                 await get_scanner_data('4');
+                await get_scanner_data('7');
+
                 await get_scanner_data('5');
 
                 // await get_scanner_data('3');
@@ -437,24 +461,25 @@ export const useScannerStore = defineStore('scanner', () => {
 
                 console.log('扫码器3号机', third_scanner_data.value)
                 console.log('扫码器4号机', fourth_scanner_data.value)
+                console.log('扫码器7号机', seventh_scanner_data.value)
+
                 console.log('扫码器5号机', fifth_scanner_data.value)
                 // @ts-ignore
 
                 system_logs.value.push(`${current_campre_loop_time.value}#######扫码器3号机 👩🏻‍⚕️  ${third_scanner_data.value}`)
-                // @ts-ignore
-
                 system_logs.value.push(`${current_campre_loop_time.value}#######扫码器4号机 👩🏻‍⚕️  ${fourth_scanner_data.value}`)
-                // @ts-ignore
+                system_logs.value.push(`${current_campre_loop_time.value}#######扫码器7号机 👩🏻‍⚕️  ${seventh_scanner_data.value}`)
 
                 system_logs.value.push(`${current_campre_loop_time.value}#######扫码器5号机 👩🏻‍⚕️ ${fifth_scanner_data.value}`)
 
-                if(third_scanner_data.value.length > 0 && fourth_scanner_data.value.length > 0 && third_scanner_data.value != fourth_scanner_data.value){
-                  // 3,4都不为空，但是却不相等，直接返回失败给PLC
+                if(third_scanner_data.value.length > 0 && fourth_scanner_data.value.length > 0 && seventh_scanner_data.value.length > 0 && (third_scanner_data.value != fourth_scanner_data.value || third_scanner_data.value != seventh_scanner_data.value)){
+                  // 3,4,7都不为空，但是却不相等，直接返回失败给PLC
                   check_result_bool = false
                 } else {
-                  // 比对前先将3、4号A码转换成D码，再和5号D码进行比对
+                  // 比对前先将3、4、7号A码转换成D码，再和5号D码进行比对
                   let aCode = third_scanner_data.value;
                   aCode == '' && (aCode = fourth_scanner_data.value)
+                  aCode == '' && (aCode = seventh_scanner_data.value)
                   // 发起转换request
                   const dCode = await aCodeToDCode(aCode);
                   system_logs.value.push(`比对阶段A码:${aCode},D码:${dCode}`)
@@ -591,6 +616,12 @@ export const useScannerStore = defineStore('scanner', () => {
             .catch(function (error) { })
         await axios
             .get(`http://127.0.0.1:6688/SerialPort?portName=COM4&hexString=2B%202B%202B%202B%2046%2057%2043%204D%2053%204F%2052%2031%200D`, {})
+            .catch(function (error) { })
+        await axios
+        .get(`http://127.0.0.1:6688/SerialPort?portName=COM14&hexString=2B%202B%202B%202B%2046%2057%2043%204D%2053%204F%2052%2031%200D`, {})
+        .catch(function (error) { })
+        await axios
+            .get(`http://127.0.0.1:6688/SerialPort?portName=COM15&hexString=2B%202B%202B%202B%2046%2057%2043%204D%2053%204F%2052%2031%200D`, {})
             .catch(function (error) { })
     }
     return {

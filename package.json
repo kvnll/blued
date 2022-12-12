@@ -1,12 +1,14 @@
 {
   "name": "xuan-ren-desktop",
-  "version": "2.4.4",
+  "version": "2.4.5",
   "main": "dist/main/index.cjs",
   "author": "weicheng.zhu@icloud.com",
   "license": "MIT",
   "scripts": {
     "dev": "node scripts/watch.mjs",
     "prebuild": "vue-tsc --noEmit --p packages/renderer/tsconfig.json && node scripts/build.mjs",
+    "electron:build": "electron-builder --config electron-builder.json",
+    "electron:win": "electron-builder --windows --config electron-builder.json",
     "build": "vue-tsc --noEmit  && electron-builder -w",
     "init": "git config core.hooksPath .git/hooks/ && rm -rf .git/hooks && npx simple-git-hooks",
     "test:e2e": "npx playwright test",
