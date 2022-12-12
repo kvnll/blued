@@ -23,7 +23,7 @@
     "@vue/runtime-core": "^3.2.33",
     "electron-rebuild": "^3.2.7",
     "electron": "18.2.0",
-    "electron-builder": "^23.0.3",
+    "electron-builder": "^23.6.0",
     "nano-staged": "^0.8.0",
     "sass": "^1.51.0",
     "scss": "^0.2.4",
