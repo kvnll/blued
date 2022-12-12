@@ -635,6 +635,8 @@ export const useScannerStore = defineStore('scanner', () => {
         third_scanner_data,
         fourth_scanner_data,
         fifth_scanner_data,
+        sixth_scanner_data,
+        seventh_scanner_data,
 
         compare_result,
 
